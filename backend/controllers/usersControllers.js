@@ -2,6 +2,7 @@ const usersModel = require("../models/users.model");
 
 const getAllUsers = async (req, res) => {
   try {
+    const users = await usersModel.find();
     res.json({ status: 1, msg: "user data received", employees: users });
   } catch (error) {
     res.status(500).json({ status: 0, msg: "Fail to get data", message: error.message });
